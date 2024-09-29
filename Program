@@ -1,0 +1,102 @@
+namespace Proyecto_en_Clase
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string nom, app, apm, gen;
+            int an;
+            Console.Clear();
+            //Capturamos los atributos de la nueva persona
+            Console.WriteLine("Ingrese el nombre de la persona a registrar:");
+            nom = Console.ReadLine();
+            Console.WriteLine("Ingrese el apellido paterno de la persona a registrar:");
+            app = Console.ReadLine();
+            Console.WriteLine("Ingrese el apellido materno de la persona a registrar:");
+            apm = Console.ReadLine();
+            Console.WriteLine("Ingrese el genero de la persona a registrar:");
+            gen = Console.ReadLine();
+            Console.WriteLine("Ingrese el año de nacimiento de la persona a registrar:");
+            an = int.Parse(Console.ReadLine());
+            Console.Clear();
+
+            //Ponemos los atributos en el primer constuctor
+            persona p1 = new persona(nom, app, apm, gen, an);
+            p1.mostrarpersona();
+            //
+            persona p2 = new persona();
+            p2.mostrarpersona();
+            p2.destructor();
+        }
+    }
+    public class persona
+    {
+        //Atributos
+        string nombre, apellidop, apellidom, genero;
+        int yob, edade;
+
+        //Metodos
+        //Constructor
+        public persona()
+        {
+            nombre = "No asignado";
+            apellidop = "No asignado";
+            apellidom = "No asignado";
+            genero = "No asignado";
+            yob = 0;
+        }
+        //Constructor
+        public persona(string n, string ap, string am, string g, int a)
+        {
+            nombre = n;
+            apellidop = ap;
+            apellidom = am;
+            genero = g;
+            yob = a;
+            edade = edad(yob);
+        }
+        //Metodo para mostrar informacion
+        public void mostrarpersona()
+        {
+            Console.WriteLine("El nombre de la persona es:");
+            Console.WriteLine(nombre + " " + apellidop + " " + apellidom);
+            Console.WriteLine("El genero de la persona es:");
+            Console.WriteLine(genero);
+            Console.WriteLine("El año de nacimiento de la persona es:");
+            Console.WriteLine(yob);
+            Console.WriteLine("Tienes " + edade + " años de edad.");
+        }
+        //Metodo capturar datos de persona
+        public void capturarpersona()
+        {
+            
+            Console.Clear();
+            Console.WriteLine("Ingrese el nombre de la persona a registrar:");
+            nombre  = Console.ReadLine();
+            Console.WriteLine("Ingrese el apellido paterno de la persona a registrar:");
+            apellidop = Console.ReadLine();
+            Console.WriteLine("Ingrese el apellido materno de la persona a registrar:");
+            apellidom = Console.ReadLine();
+            Console.WriteLine("Ingrese el genero de la persona a registrar:");
+            genero = Console.ReadLine();
+            Console.WriteLine("Ingrese el año de nacimiento de la persona a registrar:");
+            yob = int.Parse(Console.ReadLine());
+        }
+        //Metodo Destructor
+        public void destructor()
+        {
+            nombre = null;
+            apellidop = null;
+            apellidom = null;
+            genero = null;
+            yob = 0;
+        }
+        //Metodo para calcular edad
+        public int edad(int a)
+        {
+            edade = 2024 - a;
+            return edade;
+
+        }
+    }
+}
