@@ -23,9 +23,10 @@ namespace Proyecto_en_Clase
             //Ponemos los atributos en el primer constuctor
             persona p1 = new persona(nom, app, apm, gen, an);
             p1.mostrarpersona();
-            //
+            //Creamos otro objeto persona con un constructor diferente
             persona p2 = new persona();
             p2.mostrarpersona();
+            //Destruimos o finalizamos la persona p2
             p2.destructor();
         }
     }
